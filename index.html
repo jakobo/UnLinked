@@ -1,0 +1,46 @@
+<!DOCTYPE>
+<html>
+<head>
+    <title>UnLinked</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="rsc/unlink.css"/> 
+    <script type="text/javascript" src="http://platform.linkedin.com/in.js">
+        authorize: false
+        extensions: rs@https://gist.github.com/raw/7d9425d638bbb2119084/7408e30b26a2d54f991e95020290118e8f4be800/rs.js
+        api_key: 6sNK_uX_ubfndkf6KMdIHl6MJ6SB29aX-pXdpM67rTuqdmEJHkWiq0bi8Ry2W8y3
+    </script>
+    <script type="text/javascript" src="rsc/unlink.js"></script>
+</head>
+<body>
+    <div id="unlink">
+		<div id="login">
+			<script type="in/login" data-onAuth="onAuth">
+				Hi, <?js= firstName ?>
+			</script>
+		</div>
+		<div id="progress-area">
+			<div id="step-1">
+				<p id="sign-in-text">sign in to get started</p>
+				<div id="arrow-up"></div>
+			</div>
+			<div id="step-2">
+				<div id="progress-container">
+					<div id="progress-bar"><img src="rsc/img_loader.gif"/></div>
+					<div id="progress-mask"></div>
+				</div>
+			</div>
+			<div id="step-3">
+				<p id="download-text">Download my Data</p>
+				<div id="arrow-right"></div>
+				<form>
+					<input type="hidden" name="data" value=""/>
+					<input type="submit" name="submit" value="Download"/>
+				</form>
+			</div>
+		</div>
+		<div id="explanation">
+			<h2>What's Unlinked?</h2>
+			<p>Text here blah blah</p>
+		</div>
+	</div>
+</body>
+</html>
