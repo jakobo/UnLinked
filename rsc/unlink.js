@@ -95,19 +95,19 @@ function updateState() {
     var total = 0;
     var setWidth = 0;
     for (name in data) {
-        size++;
+        total++;
         if (data[name]) {
-            total++;
+            size++;
         }
     }
     
-    setWidth = Math.ceil((size / total) * PROGRESS_WIDTH);
+    setWidth = 208 - Math.ceil((size / total) * PROGRESS_WIDTH);
     $("#progress-mask").animate({
       width: setWidth + "px"
     }, 300, "linear", function() {
       if (size === total) {
           $("#progress-area").removeClass("step-2").addClass("step-3");
-          $("#your-data").value(assemblePayload());
+          // TODO FIXME $("#your-data").value(assemblePayload());
       }
     });
 }
