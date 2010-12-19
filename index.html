@@ -2,45 +2,53 @@
 <html>
 <head>
     <title>UnLinked</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="rsc/reset.css"/> 
     <link rel="stylesheet" type="text/css" media="screen" href="rsc/unlink.css"/> 
     <script type="text/javascript" src="http://platform.linkedin.com/in.js">
         authorize: false
         extensions: rs@https://gist.github.com/raw/7d9425d638bbb2119084/7408e30b26a2d54f991e95020290118e8f4be800/rs.js
-        api_key: 6sNK_uX_ubfndkf6KMdIHl6MJ6SB29aX-pXdpM67rTuqdmEJHkWiq0bi8Ry2W8y3
+        api_key: xLzley0WLLcrN3RV0ZWvkg0-zW5c5YtbrTNvju4MuVFb8ipc7hrFrfUPV9essXdN
     </script>
     <script type="text/javascript" src="rsc/unlink.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" type="text/javascript"></script>
 </head>
 <body>
     <div id="unlink">
-		<div id="login">
-			<script type="in/login" data-onAuth="onAuth">
-				Hi, <?js= firstName ?>
-			</script>
-		</div>
-		<div id="progress-area">
-			<div id="step-1">
-				<p id="sign-in-text">sign in to get started</p>
-				<div id="arrow-up"></div>
-			</div>
-			<div id="step-2">
-				<div id="progress-container">
-					<div id="progress-bar"><img src="rsc/img_loader.gif"/></div>
-					<div id="progress-mask"></div>
-				</div>
-			</div>
-			<div id="step-3">
-				<p id="download-text">Download my Data</p>
-				<div id="arrow-right"></div>
-				<form>
-					<input type="hidden" name="data" value=""/>
-					<input type="submit" name="submit" value="Download"/>
-				</form>
-			</div>
-		</div>
-		<div id="explanation">
-			<h2>What's Unlinked?</h2>
-			<p>Text here blah blah</p>
-		</div>
-	</div>
+        <div id="content">
+            <h1 id="logo">UnLinked</h1>
+            <div id="login">
+                <script type="in/login" data-onAuth="onAuth">
+                        Hi, <?js= firstName ?>
+                </script>
+            </div>
+            <div id="progress-area" class="step-2">
+                <div id="step-1" class="step step-1">
+                    <p id="sign-in-text">sign in to get started</p>
+                    <div id="arrow-up"></div>
+                </div>
+                <div id="step-2" class="step step-2">
+                    <div id="progress-container">
+                        <div id="progress-bar">
+                            <img src="rsc/img_loader.gif"/>
+                            <div id="progress-mask"></div>
+                        </div>
+                    </div>
+                    <div id="progress-text">Getting your data</div>
+                </div>
+                <div id="step-3" class="step step-3">
+                    <p id="download-text">Download my Data</p>
+                    <div id="arrow-right"></div>
+                    <form>
+                        <input id="your-data" type="hidden" name="data" value=""/>
+                        <input type="submit" name="submit" value="Download"/>
+                    </form>
+                </div>
+            </div>
+            <div id="explanation">
+                <h2>What's Unlinked?</h2>
+                <p>Text here blah blah</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

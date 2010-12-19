@@ -7,6 +7,7 @@ var data = {
     connections: null,
     shares: null
 },
+PROGRESS_WIDTH = 208,
 PROFILE_URL = "/people/~:(first-name,last-name,headline,location:(name,country:(code)),industry,current-status,current-status-timestamp,current-share,num-connections,summary,specialties,proposal-comments,associations,honors,interests,num-recommenders,phone-numbers,im-accounts,twitter-accounts,date-of-birth,main-address,member-url-resources)",
 POSITIONS_URL = "/people/~/positions:(id,title,summary,start-date,end-date,is-current,company:(name,type,size,industry,ticker))",
 EDUCATIONS_URL = "/people/~/educations:(id,school-name,field-of-study,start-date,end-date,degree,activities,notes)",
@@ -16,13 +17,8 @@ SHARES_URL = "/people/~/network";
 
 // Go make a ton of API calls (raw style) to get all your personal data
 window.onAuth = function() {
-    IN.Util.addClass(IN.$Id("processing"), "processing");
+    $("progress-area").removeClass("step-1").addClass("step-2");
     
-    IN.Event.on(IN.$Id("show_data"), "click", function(e) {
-        e.stopEvent();
-        showData();
-    });
-  
     IN.API.Raw(PROFILE_URL).result(function(r) {
         logResult("profile", r);
     })
@@ -84,48 +80,30 @@ function logError(name, result) {
 }
 
 function assemblePayload() {
-  var out = {};
-  out.profile = data.profile;
-  out.profile.recommendations = data.recommendations;
-  out.profile.positions = data.positions;
-  out.profile.educations = data.educations;
-  out.profile.connections = data.connections;
-  out.shares = data.shares;
-  return JSON.stringify(out);
+    var out = {};
+    out.profile = data.profile;
+    out.profile.recommendations = data.recommendations;
+    out.profile.positions = data.positions;
+    out.profile.educations = data.educations;
+    out.profile.connections = data.connections;
+    out.shares = data.shares;
+    return JSON.stringify(out);
 }
 
 function updateState() {
-    var node = IN.$Id("processing");
-    var complete = true;
+    var size = 0;
+    var total = 0;
     for (name in data) {
+        size++;
         if (data[name]) {
-            IN.Util.addClass(node, name)
-        }
-        else {
-          complete = false;
+            total++;
         }
     }
     
-    if (complete) {
-      IN.$Id("your_data").value = assemblePayload();
-      IN.Util.addClass(IN.$Id("linkout"), "complete");
+    if (size === total) {
+        $("progress-area").removeClass("step-2").addClass("step-3");
+        $("your-data").value(assemblePayload());
     }
 }
 
-function showData() {
-    var win = window.open('','win',
-        'width=500,height=400'
-        +',menubar=0'
-        +',toolbar=1'
-        +',status=0'
-        +',scrollbars=1'
-        +',resizable=1');
-    win.document.writeln(['',
-        '<html><head><title>Your LinkedIn Data</title></head>',
-        '<body bgcolor=white onLoad="self.focus()"><textarea style="width: 100%; height: 100%;">',
-        IN.$Id("your_data").value,
-        '</textarea></body></html>',
-    ''].join(''));
-    win.document.close();
-}
 })();
