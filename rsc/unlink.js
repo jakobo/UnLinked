@@ -17,7 +17,7 @@ SHARES_URL = "/people/~/network";
 
 // Go make a ton of API calls (raw style) to get all your personal data
 window.onAuth = function() {
-    $("progress-area").removeClass("step-1").addClass("step-2");
+    $("#progress-area").removeClass("step-1").addClass("step-2");
     
     IN.API.Raw(PROFILE_URL).result(function(r) {
         logResult("profile", r);
@@ -65,7 +65,7 @@ window.onAuth = function() {
         logError("shares");
     });
     
-}
+};
 
 function logResult(name, result) {
     IN.API.toRS(result).$object(function(json) {
@@ -93,6 +93,7 @@ function assemblePayload() {
 function updateState() {
     var size = 0;
     var total = 0;
+    var setWidth = 0;
     for (name in data) {
         size++;
         if (data[name]) {
@@ -100,10 +101,15 @@ function updateState() {
         }
     }
     
-    if (size === total) {
-        $("progress-area").removeClass("step-2").addClass("step-3");
-        $("your-data").value(assemblePayload());
-    }
+    setWidth = Math.ceil((size / total) * PROGRESS_WIDTH);
+    $("#progress-mask").animate({
+      width: setWidth + "px"
+    }, 300, "linear", function() {
+      if (size === total) {
+          $("#progress-area").removeClass("step-2").addClass("step-3");
+          $("#your-data").value(assemblePayload());
+      }
+    });
 }
 
 })();

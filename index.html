@@ -3,6 +3,7 @@
 <head>
     <title>UnLinked</title>
     <link rel="stylesheet" type="text/css" media="screen" href="rsc/reset.css"/> 
+    <link rel="stylesheet" type="text/css" media="screen" href="rsc/linkedin.css"/> 
     <link rel="stylesheet" type="text/css" media="screen" href="rsc/unlink.css"/> 
     <script type="text/javascript" src="http://platform.linkedin.com/in.js">
         authorize: false
@@ -21,7 +22,7 @@
                         Hi, <?js= firstName ?>
                 </script>
             </div>
-            <div id="progress-area" class="step-2">
+            <div id="progress-area" class="step-1">
                 <div id="step-1" class="step step-1">
                     <p id="sign-in-text">sign in to get started</p>
                     <div id="arrow-up"></div>
@@ -40,7 +41,7 @@
                     <div id="arrow-right"></div>
                     <form>
                         <input id="your-data" type="hidden" name="data" value=""/>
-                        <input type="submit" name="submit" value="Download"/>
+                        <a href="javascript:void(0);" id="do-download" class="btn-primary">Download</a>
                     </form>
                 </div>
             </div>

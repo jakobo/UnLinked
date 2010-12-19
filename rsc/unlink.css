@@ -129,3 +129,30 @@ body {
     left: 252px;
     color: #0073B1;
 }
+
+/* STEP 3 */
+#download-text {
+    background: url(text_download.png) left top no-repeat;
+    width: 204px;
+    height: 33px;
+    text-indent: -12345px;
+    overflow: hidden;
+    position: absolute;
+    top: 30px;
+}
+
+#arrow-right {
+    background: url(img_arrow_right.png) left top no-repeat;
+    width: 86px;
+    height: 34px;
+    overflow: hidden;
+    position: absolute;
+    top: 21px;
+    left: 242px;
+}
+
+#do-download {
+    position: absolute;
+    left: 341px;
+    top: 30px;
+}

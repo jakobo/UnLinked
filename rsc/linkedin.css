@@ -1,0 +1,11 @@
+.btn-primary,.btn-secondary,.btn-ternary,.btn-quaternary,.btn-action{background-image:url(http://static01.linkedin.com/scds/common/u/img/sprite/sprite_chrome_v3.png);background-repeat:repeat-x;border-width:1px;border-style:solid;-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;cursor:pointer;font-size:12px;line-height:1.35;margin:0;overflow:visible;padding:3px 10px 2px;*padding:2px 10px 1px;text-decoration:none!important;vertical-align:top;width:auto;}
+a.btn-primary,a.btn-secondary,a.btn-ternary,a.btn-quaternary,.btn-action{display:inline-block!important;*padding:3px 10px;}
+a.btn-primary:hover,a.btn-secondary:hover,a.btn-ternary:hover,a.btn-quaternary:hover,.btn-action:hover{text-decoration:none!important;}
+.btn-primary[disabled],.btn-primary.disabled,.btn-secondary[disabled],.btn-secondary.disabled,.btn-ternary[disabled],.btn-ternary.disabled,.btn-quaternary[disabled],.btn-quaternary.disabled,.btn-action[disabled],.btn-action.disabled{cursor:default;}
+.toggle-btn{background:url(http://static01.linkedin.com/scds/common/u/img/sprite/sprite_chrome_v3.png) no-repeat 4px -1200px;display:inline-block!important;margin-top:10px;width:15px;height:3px;}
+.btn-menu-open .toggle-btn{background-position:4px -1250px;}
+.btn-primary,.btn-menu-open.btn-primary,.btn-split.btn-primary:hover{background-color:#0571a6!important;background-position:0 -400px;border-color:#045a8b;color:#fff!important;}
+.btn-primary:hover,.btn-toggle-hover.btn-primary:hover{background-color:#04608e!important;background-position:0 -450px;border-color:#004a73;}
+.btn-split-toggle-hover .btn-primary{border-right-color:#004a73;}
+.btn-primary:active,.btn-split-toggle-hover.btn-primary:active{background-color:#267696;background-position:0 -500px;border-color:#004a73;}
+.btn-primary[disabled],.btn-primary.disabled{background-color:#82b8d2;background-position:0 -550px;border-color:#81acc5;color:#ddebf2!important;}
