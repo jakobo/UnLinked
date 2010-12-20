@@ -18,36 +18,45 @@ SHARES_URL = "/people/~/network";
 // Go make a ton of API calls (raw style) to get all your personal data
 window.onAuth = function() {
     $("#progress-area").removeClass("step-1").addClass("step-2");
+    $("#do-download").click(function(e) {
+        e.preventDefault();
+        $("#unlinked-submit").submit();
+    });
     
-    IN.API.Raw(PROFILE_URL).result(function(r) {
+    IN.API.Raw(PROFILE_URL)
+    .result(function(r) {
         logResult("profile", r);
     })
     .error(function(r) {
         logError("profile");
     });
     
-    IN.API.Raw(POSITIONS_URL).result(function(r) {
+    IN.API.Raw(POSITIONS_URL)
+    .result(function(r) {
         logResult("positions", r);
     })
     .error(function(r) {
         logError("positions");
     });
     
-    IN.API.Raw(EDUCATIONS_URL).result(function(r) {
+    IN.API.Raw(EDUCATIONS_URL)
+    .result(function(r) {
         logResult("educations", r);
     })
     .error(function(r) {
         logError("educations");
     });
     
-    IN.API.Raw(RECOMMENDATION_URL).result(function(r) {
+    IN.API.Raw(RECOMMENDATION_URL)
+    .result(function(r) {
         logResult("recommendations", r);
     })
     .error(function(r) {
         logError("recommendations");
     });
     
-    IN.API.Raw(CONNECTIONS_URL).result(function(r) {
+    IN.API.Raw(CONNECTIONS_URL)
+    .result(function(r) {
         logResult("connections", r);
     })
     .error(function(r) {
@@ -68,10 +77,12 @@ window.onAuth = function() {
 };
 
 function logResult(name, result) {
+    $("#progress-text").text("Retrieved "+name);
     IN.API.toRS(result).$object(function(json) {
       data[name] = json;
       updateState();
     }).destroy();
+    $("#progress-text").text("Processed "+name);
 }
 
 function logError(name, result) {
@@ -91,9 +102,10 @@ function assemblePayload() {
 }
 
 function updateState() {
-    var size = 0;
-    var total = 0;
-    var setWidth = 0;
+    var size = 0,
+        total = 0,
+        setWidth = 0;
+    
     for (name in data) {
         total++;
         if (data[name]) {
@@ -101,13 +113,14 @@ function updateState() {
         }
     }
     
-    setWidth = 208 - Math.ceil((size / total) * PROGRESS_WIDTH);
+    setWidth = PROGRESS_WIDTH - Math.ceil((size / total) * PROGRESS_WIDTH);
+    
     $("#progress-mask").animate({
       width: setWidth + "px"
     }, 300, "linear", function() {
       if (size === total) {
+          $("#your-data").val(assemblePayload());
           $("#progress-area").removeClass("step-2").addClass("step-3");
-          // TODO FIXME $("#your-data").value(assemblePayload());
       }
     });
 }

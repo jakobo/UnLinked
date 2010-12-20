@@ -39,15 +39,50 @@
                 <div id="step-3" class="step step-3">
                     <p id="download-text">Download my Data</p>
                     <div id="arrow-right"></div>
-                    <form>
+                    <form id="unlinked-submit" action="download.php" method="POST">
                         <input id="your-data" type="hidden" name="data" value=""/>
                         <a href="javascript:void(0);" id="do-download" class="btn-primary">Download</a>
                     </form>
                 </div>
             </div>
             <div id="explanation">
-                <h2>What's Unlinked?</h2>
-                <p>Text here blah blah</p>
+                <h2>What's UnLinked?</h2>
+                <p>
+                    <strong>UnLinked</strong> is a tool to help ease the downloading of your professional
+                    data you've trusted <a href="http://www.linkedin.com">LinkedIn</a> with. UnLinked
+                    uses the <a href="http://developer.linkedin.com/community/jsapi">JavaScript API</a>
+                    to access your profile data and sends it to you in a
+                    <a href="http://json.org">JSON</a> format.
+                </p>
+                
+                <h2>Why UnLinked?</h2>
+                <p>
+                    Your LinkedIn data represents a lot of work; your profile of record and the
+                    connections you've made during your career. We don't believe in holding this data
+                    hostage. You should be able to back the data up to your own servers, download it and
+                    keep it safe, and have access to it even if you leave LinkedIn or something happens
+                    to the service.<sub><a id="txt1" href="#ftn1">1</a></sub>
+                </p>
+                
+                <h2>Credits, Etc</h2>
+                <p>
+                    UnLinked was a product of the December 2010 Hackday/InDay, where the employees are
+                    encouraged to explore new technologies and ideas. We've been big fans of data
+                    portability, and felt it would be a huge benefit to our users if they could one-click
+                    download their professional data. The result, was this simple two page site.
+                </p>
+                <p>
+                    Even this site is portable. <a href="https://github.com/Jakobo/Unlinked">Fork UnLinked
+                    on GitHub</a> (Requires PHP &gt; 4.0)
+                </p>
+                
+                <ul id="footnotes">
+                    <li>
+                        <sub><a id="ftn1" href="#txt1">1</a></sub>
+                        We really don't want you to leave. Maybe we can
+                        <a href="http://help.linkedin.com/app/ask">work it out</a>?
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
