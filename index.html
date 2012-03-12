@@ -7,11 +7,15 @@
     <link rel="stylesheet" type="text/css" media="screen" href="rsc/unlink.css"/> 
     <script type="text/javascript" src="http://platform.linkedin.com/in.js">
         authorize: false
-        extensions: rs@https://gist.github.com/raw/7d9425d638bbb2119084/7408e30b26a2d54f991e95020290118e8f4be800/rs.js
-        api_key: xLzley0WLLcrN3RV0ZWvkg0-zW5c5YtbrTNvju4MuVFb8ipc7hrFrfUPV9essXdN
+        extensions: rs@http://jakobo.github.com/UnLinked/xtn/rs.js
+        api_key: 9qy5n7zwdmto
+    </script>
+    <script type="text/javascript">
+        var UNLINKED_LOCAL = true;
     </script>
     <script type="text/javascript" src="rsc/unlink.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.3/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src-"https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
 </head>
 <body>
     <div id="unlink">
@@ -85,6 +89,10 @@
                 </ul>
             </div>
         </div>
+    </div>
+    <div id="dialog" title="Your Data" style="display:none">
+        <p>This version of UnLinked does not download. Simply copy the below contents and you're done!</p>
+        <textarea id="download-output"></textarea>
     </div>
 </body>
 </html>

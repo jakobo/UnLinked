@@ -18,10 +18,6 @@ SHARES_URL = "/people/~/network";
 // Go make a ton of API calls (raw style) to get all your personal data
 window.onAuth = function() {
     $("#progress-area").removeClass("step-1").addClass("step-2");
-    $("#do-download").click(function(e) {
-        e.preventDefault();
-        $("#unlinked-submit").submit();
-    });
     
     IN.API.Raw(PROFILE_URL)
     .result(function(r) {
@@ -120,6 +116,21 @@ function updateState() {
     }, 300, "linear", function() {
       if (size === total) {
           $("#your-data").val(assemblePayload());
+          $("#download-output").html(assemblePayload());
+
+          if (UNLINKED_LOCAL == true) {
+            $("#do-download").click(function(e) {
+              e.preventDefault();
+              $("#dialog").dialog();
+            });
+          }
+          else {
+            $("#do-download").click(function(e) {
+                e.preventDefault();
+                $("#unlinked-submit").submit();
+            });
+          }
+
           $("#progress-area").removeClass("step-2").addClass("step-3");
       }
     });
